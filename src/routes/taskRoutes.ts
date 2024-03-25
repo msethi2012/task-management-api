@@ -1,32 +1,24 @@
+// src/routes/taskRoutes.ts
+
 import express from 'express';
+import {
+  createTask,
+  getTaskById,
+  updateTask,
+  deleteTask,
+  getAllTasks,
+  getTasksByAssignedTo,
+  getTasksByCategory,
+} from '../controllers/taskController';
 
 const router = express.Router();
 
-router.post('/task', (req, res) => {
-  // Create a new task
-});
+router.post('/task', createTask);
+router.get('/task/:id', getTaskById);
+router.put('/task/:id', updateTask);
+router.delete('/task/:id', deleteTask);
+router.get('/tasks', getAllTasks);
+router.get('/tasks', getTasksByAssignedTo);
+router.get('/tasks', getTasksByCategory);
 
-router.get('/task/:id', (req, res) => {
-  // Retrieve a task by ID
-});
-
-router.put('/task/:id', (req, res) => {
-  // Update a task by ID
-});
-
-router.delete('/task/:id', (req, res) => {
-  // Delete a task by ID
-});
-
-router.get('/tasks', (req, res) => {
-  // Retrieve all tasks
-});
-
-router.get('/tasks', (req, res) => {
-  // Retrieve tasks by query params (assignedTo, category)
-});
 export default router;
-
-
-
-
