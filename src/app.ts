@@ -2,7 +2,7 @@
 
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { json } from 'body-parser';
-import taskRoutes from './routes/taskRoutes';
+import router from './routes/taskRoutes';
 import { sequelize } from './models/sequelize';
 
 const app: Application = express();
@@ -11,7 +11,7 @@ const PORT = 3000;
 app.use(json());
 
 // Routes
-app.use('/api', taskRoutes);
+app.use('/api', router);
 
 // Error handling middleware
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
@@ -29,3 +29,4 @@ app.listen(PORT, async () => {
     console.error('Error syncing database:', error);
   }
 });
+export default app;

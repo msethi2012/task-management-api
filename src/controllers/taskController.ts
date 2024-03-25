@@ -16,6 +16,7 @@ export async function getTaskById(req: Request, res: Response): Promise<void> {
   try {
     const { id } = req.params;
     const task = await Task.findByPk(id);
+    console.log(task);
     if (task) {
       res.status(200).json(task);
     } else {
@@ -61,7 +62,7 @@ export async function deleteTask(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function getAllTasks(req: Request, res: Response): Promise<void> {
+/*export async function getAllTasks(req: Request, res: Response): Promise<void> {
   try {
     const tasks = await Task.findAll();
     res.status(200).json(tasks);
@@ -69,10 +70,36 @@ export async function getAllTasks(req: Request, res: Response): Promise<void> {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
+}*/
+
+export async function getAllTasks(req: Request, res: Response): Promise<void> {
+  try {
+    const { page = 1, limit = 10 } = req.query;
+    const offset = (Number(page) - 1) * Number(limit);
+
+    const tasks = await Task.findAndCountAll({
+      offset,
+      limit: Number(limit),
+    });
+
+    const totalPages = Math.ceil(tasks.count / Number(limit));
+
+    res.status(200).json({
+      totalTasks: tasks.count,
+      totalPages,
+      currentPage: Number(page),
+      tasks: tasks.rows,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 }
+
 
 export async function getTasksByAssignedTo(req: Request, res: Response): Promise<void> {
   try {
+    console.log("assignedTo req query",req.query);
     const { assignedTo } = req.query;
     if (!assignedTo) {
       res.status(400).json({ message: 'Username parameter is required' });
