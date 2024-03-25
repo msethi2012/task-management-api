@@ -42,5 +42,4 @@ describe('GET /task/:id', () => {
   });
 });
 */
-// Similar tests for other routes (PUT, DELETE, GET all, GET by assignedTo, GET by category)
 
