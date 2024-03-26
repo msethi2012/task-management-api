@@ -37,13 +37,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/task/1",
+					"raw": "{{base_url}}/tasks",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"task",
-						"1"
+						"tasks"
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -123,13 +122,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/task/1",
+					"raw": "{{base_url}}/tasks/assignedTo?assignedTo=Ravi Kumar",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"task",
-						"1"
+						"tasks",
+						"assignedTo"
+					],
+					"query": [
+						{
+							"key": "assignedTo",
+							"value": "Ravi Kumar"
+						}
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -166,13 +171,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/task/1",
+					"raw": "{{base_url}}/tasks/category?category=Test1",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"task",
-						"1"
+						"tasks",
+						"category"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Test1"
+						}
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -201,7 +212,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n      \"title\": \"Test Taskw3s34\",\n      \"description\": \"Test description\",\n      \"creationDate\": \"Mon Mar 25 2024 20:47:48 GMT+0530 (India Standard Time)\",\n      \"dueDate\": \"Mon Mar 25 2024 20:47:48 GMT+0530 (India Standard Time)\",\n      \"assignedTo\": \"John Doe\",\n      \"category\": \"Test\",\n      \"status\": \"Pending\"\n      }",
+					"raw": "{\n      \"title\": \"Test Taskw3s34\",\n      \"description\": \"Test description\",\n      \"creationDate\": \"Mon Mar 25 2024 20:47:48 GMT+0530 (India Standard Time)\",\n      \"dueDate\": \"Mon Mar 25 2024 20:47:48 GMT+0530 (India Standard Time)\",\n      \"assignedTo\": \"Ravi Kumar\",\n      \"category\": \"Test1\",\n      \"status\": \"Pending\"\n      }",
 					"options": {
 						"raw": {
 							"language": "json"
