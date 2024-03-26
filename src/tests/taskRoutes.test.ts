@@ -25,21 +25,24 @@ describe('POST /task', () => {
   });
 });
 
-/*
+
 describe('GET /task/:id', () => {
 
   it('should get a task by ID', async () => {
     const task = await Task.create({
-      title: "Test Task",
-      description: "Test description",
-      category: "Test",
-      assignedTo: "John Doe",
-      status: "Pending"
+                id:'2' ,
+                title: 'Test Task',
+                description: 'Test description',
+                assignedTo: 'John Doe',
+                category: 'Test',
+                status: 'Pending',
+                creationDate: new Date(),
+                dueDate: new Date()
     });
     const response = await request(app).get(`/task/${task.id}`);
     expect(response.status).toBe(200);
     expect(response.body.title).toBe('Test Task');
   });
 });
-*/
+
 

@@ -1,4 +1,3 @@
-
 import { Request, Response } from 'express';
 import Task from '../models/taskModel';
 
@@ -99,7 +98,6 @@ export async function getAllTasks(req: Request, res: Response): Promise<void> {
 
 export async function getTasksByAssignedTo(req: Request, res: Response): Promise<void> {
   try {
-    console.log("assignedTo req query",req.query);
     const { assignedTo } = req.query;
     if (!assignedTo) {
       res.status(400).json({ message: 'Username parameter is required' });

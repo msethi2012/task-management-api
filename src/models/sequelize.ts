@@ -15,7 +15,6 @@ export const sequelize = new Sequelize(connectionString, {
     multipleStatements: true,
   },
 });
-//mysql -u taskmanagementapi_doneaskhad -P 3307 -pe1106c67f351a6423c7a6bb21b525d072fe48772 -h mda.h.filess.io taskmanagementapi_doneaskhad
 
 export async function connectDatabase(): Promise<void> {
   try {
